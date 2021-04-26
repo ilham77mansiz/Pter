@@ -3,7 +3,7 @@ from userbot import CMD_HELP, bot
 
 
 @register(outgoing=True, pattern=r"^\.stopvc (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     try:
         await e.client(stopvc(await get_call(e)))
         await eor(e, "`Voice Chat Stopped...`")
@@ -12,7 +12,7 @@ async def get_call(event):
 
 
 @register(outgoing=True, pattern=r"^\.playvc (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     zz = await eor(e, "`VC bot started...`")
     er, out = await bash("npm start")
     LOGS.warning(er)
@@ -21,7 +21,7 @@ async def get_call(event):
 
 
 @register(outgoing=True, pattern=r"^\.vcinvite (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     ok = await eor(e, "`Inviting Members to Voice Chat...`")
     users = []
     z = 0
@@ -39,7 +39,7 @@ async def get_call(event):
 
 
 @register(outgoing=True, pattern=r"^\.startvc (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     try:
         await e.client(startvc(e.chat_id))
         await eor(e, "`Voice Chat Started...`")
@@ -63,7 +63,7 @@ async def get_call(event):
 
 
 @register(outgoing=True, pattern=r"^\.rmvcacces (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     xx = await eor(e, "`Disapproving to access Voice Chat features...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
@@ -95,7 +95,7 @@ async def get_call(event):
 
 
 @register(outgoing=True, pattern=r"^\.vcaccess (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
 
 
 async def get_call(event):
