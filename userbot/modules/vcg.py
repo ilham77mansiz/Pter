@@ -48,7 +48,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.listvcaccess (?:(now)|(.*) - (.*))")
-async def get_call(event):
+async def _(e):
     xx = await eor(e, "`Getting Voice Chat Bot Users List...`")
     mm = get_vcsudos()
     pp = f"**{len(mm)} Voice Chat Bot Approved Users**\n"
