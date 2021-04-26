@@ -15,8 +15,7 @@ async def get_call(event):
 
 def user_list(l, n):
     for i in range(0, len(l), n):
-        yield l[i : i + n]
-
+        yield l[i: i + n]
 
 
 @register(outgoing=True, pattern=r"^\.stopvc (?:(now)|(.*) - (.*))")
@@ -28,7 +27,6 @@ async def _(e):
         await eor(e, f"`{str(ex)}`")
 
 
-
 @register(outgoing=True, pattern=r"^\.playvc (?:(now)|(.*) - (.*))")
 async def _(e):
     zz = await eor(e, "`VC bot started...`")
@@ -36,7 +34,6 @@ async def _(e):
     LOGS.warning(er)
     LOGS.info(out)
     await zz.edit(f"Failed {er}")
-
 
 
 @register(outgoing=True, pattern=r"^\.vcinvite (?:(now)|(.*) - (.*))")
@@ -57,7 +54,6 @@ async def _(e):
     await ok.edit(f"`Invited {z} users`")
 
 
-
 @register(outgoing=True, pattern=r"^\.startvc (?:(now)|(.*) - (.*))")
 async def _(e):
     try:
@@ -65,7 +61,6 @@ async def _(e):
         await eor(e, "`Voice Chat Started...`")
     except Exception as ex:
         await eor(e, f"`{str(ex)}`")
-
 
 
 @register(outgoing=True, pattern=r"^\.listvcaccess (?:(now)|(.*) - (.*))")
@@ -117,6 +112,8 @@ async def _(e):
 
 @register(outgoing=True, pattern=r"^\.vcaccess (?:(now)|(.*) - (.*))")
 async def _(e):
+
+
 async def _(e):
     xx = await eor(e, "`Approving to access Voice Chat features...`")
     input = e.pattern_match.group(1)
@@ -146,4 +143,3 @@ async def _(e):
         )
     except Exception as ex:
         return await eod(xx, f"`{str(ex)}`", time=5)
-
