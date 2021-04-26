@@ -98,7 +98,7 @@ async def _(e):
 async def _(e):
 
 
-async def get_call(event):
+async def _(e):
     xx = await eor(e, "`Approving to access Voice Chat features...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
