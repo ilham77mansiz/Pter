@@ -1,5 +1,5 @@
 from userbot.events import register
-from userbot import CMD_HELP, bot
+from userbot import CMD_HELP
 
 
 @register(outgoing=True, pattern=r"^\.joinvc (?:(now)|(.*) - (.*))")
@@ -49,8 +49,6 @@ async def leavevc(msg: Message):
         await reply_text(msg, "`I didn't find any Voice-Chat to leave")
 
 
-
-
 @register(outgoing=True, pattern=r"^\.playvc (?:(now)|(.*) - (.*))")
 @vc_chat
 async def play_music(msg: Message):
@@ -84,7 +82,9 @@ async def play_music(msg: Message):
         replied = msg.reply_to_message
         if PLAYING:
             text = SCHEDULED.format(
-                title=replied.audio.title, link=replied.link, position=len(QUEUE))
+                title=replied.audio.title,
+                link=replied.link,
+                position=len(QUEUE))
             await reply_text(msg, text)
     else:
         return await reply_text(msg, "Input not found")
@@ -140,7 +140,6 @@ async def pause_music(msg: Message):
     await reply_text(msg, "⏸️ **Paused** Music Successfully")
 
 
-
 @register(outgoing=True, pattern=r"^\.resume (?:(now)|(.*) - (.*))")
 @vc_chat
 async def resume_music(msg: Message):
@@ -150,6 +149,7 @@ async def resume_music(msg: Message):
 
     call.resume_playout()
     await reply_text(msg, "◀️ **Resumed** Music Successfully")
+
 
 @register(outgoing=True, pattern=r"^\.stopmusic (?:(now)|(.*) - (.*))")
 @vc_chat
