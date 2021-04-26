@@ -1,25 +1,9 @@
-from telethon.tl.functions.channels import GetFullChannelRequest as getchat
-from telethon.tl.functions.phone import CreateGroupCallRequest as startvc
-from telethon.tl.functions.phone import DiscardGroupCallRequest as stopvc
-from telethon.tl.functions.phone import GetGroupCallRequest as getvc
-from telethon.tl.functions.phone import InviteToGroupCallRequest as invitetovc
-
-from . import *
-
-
-async def get_call(event):
-    mm = await event.client(getchat(event.chat_id))
-    xx = await event.client(getvc(mm.full_chat.call))
-    return xx.call
-
-
-def user_list(l, n):
-    for i in range(0, len(l), n):
-        yield l[i: i + n]
+from userbot.events import register
+from userbot import CMD_HELP, bot
 
 
 @register(outgoing=True, pattern=r"^\.stopvc (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     try:
         await e.client(stopvc(await get_call(e)))
         await eor(e, "`Voice Chat Stopped...`")
@@ -28,7 +12,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.playvc (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     zz = await eor(e, "`VC bot started...`")
     er, out = await bash("npm start")
     LOGS.warning(er)
@@ -37,7 +21,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.vcinvite (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     ok = await eor(e, "`Inviting Members to Voice Chat...`")
     users = []
     z = 0
@@ -55,7 +39,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.startvc (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     try:
         await e.client(startvc(e.chat_id))
         await eor(e, "`Voice Chat Started...`")
@@ -64,7 +48,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.listvcaccess (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     xx = await eor(e, "`Getting Voice Chat Bot Users List...`")
     mm = get_vcsudos()
     pp = f"**{len(mm)} Voice Chat Bot Approved Users**\n"
@@ -79,7 +63,7 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.rmvcacces (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
     xx = await eor(e, "`Disapproving to access Voice Chat features...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
@@ -111,10 +95,10 @@ async def _(e):
 
 
 @register(outgoing=True, pattern=r"^\.vcaccess (?:(now)|(.*) - (.*))")
-async def _(e):
+async def get_call(event):
 
 
-async def _(e):
+async def get_call(event):
     xx = await eor(e, "`Approving to access Voice Chat features...`")
     input = e.pattern_match.group(1)
     if e.reply_to_msg_id:
