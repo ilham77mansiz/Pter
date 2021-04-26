@@ -36,7 +36,7 @@ Atau Bisa Gabung Ke Grup Petercord User KILIK GAMBARNYA👇🏻
 ## <p align="center">DEPLOY Petercord Userbot Klik GAMBARNYA!👇🏻</p>
 
 
-<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ilham77mansiz/-PETERCORD-"> <img src="https://telegra.ph/file/22169cfd534de4a3755ea.jpg" alt="Press to Takeoff" width="490px"></a>
+<p align="center"><a href="https://heroku.com/deploy?template=https://github.com/ilham77mansiz/Pter"> <img src="https://telegra.ph/file/22169cfd534de4a3755ea.jpg" alt="Press to Takeoff" width="490px"></a>
 </p>
 <br>
 
