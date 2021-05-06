@@ -2,6 +2,7 @@ import re
 
 from telethon.tl.functions.users import GetFullUserRequest
 from userbot.events import register
+from userbot import CMD_HELP
 
 
 @register(outgoing=True, pattern="^.addsudo ?(.*)")
@@ -63,7 +64,7 @@ async def _(event):
     user = ""
 
     try:
-        user = await ult.client(GetFullUserRequest(int(i)))
+        user = await event.client(GetFullUserRequest(int(i)))
     except BaseException:
         pass
 
@@ -82,3 +83,5 @@ async def _(event):
         )
     else:
         return await ok.edit(f"**Failed to add `{id}` as SUDO User ... **")
+
+
